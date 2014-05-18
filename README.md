@@ -1,7 +1,10 @@
-The Rock Trading Exchange & Python
+The Rock Trading Exchange APIs & Python
 
-This is far from complete. As soon as I can, I'll add the Trading API part. 
-The try.py is just an example script; it gets the BTC/EUR market data, some of the last EUR/DOGE trades and the BTC/USD orderbook. 
-If you want, is possible to get data from all the markets on TRT, just change the try.py files. 
+This script gets data from the TheRock (https://www.therocktrading.com/) API. For some of the request you don't need to be registered on the exchange. 
+
+The try.py is just an example script; more description is inside the file, you should have a look at it. 
+If you want, is possible to get data from all the markets on TRT, just change the try.py file. 
 
 Be careful, it may have some issues. Do whatever you want with code; I am NOT responsible for how you use this.
+
+If you have any suggestions or feedbacks feel free to let me know. 
