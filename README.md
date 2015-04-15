@@ -12,4 +12,5 @@ If you need an API key you can generate one under your "Personal Settings" page 
 
 *April 2015:*
 
-Added .py files for Python 3.x. I used the built-in 2to3 converter. Hope everything works correctly!
+- Added .py files for Python 3.x. I used the built-in 2to3 converter. Hope everything works correctly!
+- Added support to call "All Tickers" API.
