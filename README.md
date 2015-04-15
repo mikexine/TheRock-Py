@@ -8,3 +8,7 @@ If you want, is possible to get data from all the markets on TRT, just change th
 Be careful, it may have some issues. Do whatever you want with code; I am NOT responsible for how you use this.
 
 If you have any suggestions or feedbacks feel free to let me know. 
+
+
+April 2015:
+Added .py files for Python 3.x. I used the built-in 2to3 converter. Hope everything works correctly!
