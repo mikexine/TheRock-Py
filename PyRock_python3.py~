@@ -1,5 +1,5 @@
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 import json
 
 class PyRock:
@@ -20,10 +20,11 @@ class PyRock:
             'api_key'  : self.key,
             'type_of_currency' : currency
             }
-            data = urllib.urlencode(values)
-            req = urllib2.Request(url, data)
-            response = urllib2.urlopen(req)
-            Balance = json.loads(response.read())
+            data = urllib.parse.urlencode(values)
+            req = urllib.request.Request(url, data)
+            response = urllib.request.urlopen(req)
+            strBalance = response.readall().decode('utf-8')
+            Balance = json.loads(strBalance)
             return Balance
         except:
             return None
@@ -37,10 +38,11 @@ class PyRock:
             'password' : self.password,
             'api_key'  : self.key
             }
-            data = urllib.urlencode(values)
-            req = urllib2.Request(url, data)
-            response = urllib2.urlopen(req)
-            Orders = json.loads(response.read())
+            data = urllib.parse.urlencode(values)
+            req = urllib.request.Request(url, data)
+            response = urllib.request.urlopen(req)
+            strOrders = response.readall().decode('utf-8')
+            Orders = json.loads(strOrders)
             return Orders
         except:
             return None
@@ -58,10 +60,11 @@ class PyRock:
             'amount'     : amount,
             'price'      : price
             }
-            data = urllib.urlencode(values)
-            req = urllib2.Request(url, data)
-            response = urllib2.urlopen(req)
-            BuyOrder = json.loads(response.read())
+            data = urllib.parse.urlencode(values)
+            req = urllib.request.Request(url, data)
+            response = urllib.request.urlopen(req)
+            strBuyOrder = response.readall().decode('utf-8')
+            BuyOrder = json.loads(strBuyOrder)
             return BuyOrder
         except:
             return None
@@ -79,10 +82,11 @@ class PyRock:
             'amount'     : amount,
             'price'      : price
             }
-            data = urllib.urlencode(values)
-            req = urllib2.Request(url, data)
-            response = urllib2.urlopen(req)
-            SellOrder = json.loads(response.read())
+            data = urllib.parse.urlencode(values)
+            req = urllib.request.Request(url, data)
+            response = urllib.request.urlopen(req)
+            strSellOrder = response.readall().decode('utf-8')
+            SellOrder = json.loads(strSellOrder)
             return SellOrder
         except:
             return None
@@ -97,10 +101,11 @@ class PyRock:
             'api_key'    : self.key,
             'order_id'   : orderid
             }
-            data = urllib.urlencode(values)
-            req = urllib2.Request(url, data)
-            response = urllib2.urlopen(req)
-            OrderDeleted = json.loads(response.read())
+            data = urllib.parse.urlencode(values)
+            req = urllib.request.Request(url, data)
+            response = urllib.request.urlopen(req)
+            strOrderDeleted = response.readall().decode('utf-8')
+            OrderDeleted = json.loads(strOrderDeleted)
             return OrderDeleted
         except:
             return None
@@ -109,15 +114,18 @@ class PyRock:
     def MarketData(self, fund):
         self.fund=fund
         Url = "https://www.therocktrading.com/api/ticker/"+self.fund
-        ResponseTrt = urllib.urlopen(Url)
-        MkData = json.loads(ResponseTrt.read())
+        ResponseTrt = urllib.request.urlopen(Url)
+        strMkData = ResponseTrt.readall().decode('utf-8')
+        MkData = json.loads(strMkData)
         return MkData
 
       # get all market tickers
-    def AllMarketData(self):
+    def AllMarketData(self, fund):
+        self.fund=fund
         Url = "https://www.therocktrading.com/api/tickers/"
-        ResponseTrt = urllib.urlopen(Url)
-        AllMkData = json.loads(ResponseTrt.read())
+        ResponseTrt = urllib.request.urlopen(Url)
+        strAllMkData = ResponseTrt.readall().decode('utf-8')
+        AllMkData = json.loads(strAllMkData)
         return AllMkData
 
       # getting last trades for a fund since a date
@@ -125,14 +133,16 @@ class PyRock:
         self.date = date
         self.fund = fund
         Url = "https://www.therocktrading.com/api/trades/"+self.fund+"/?since="+self.date
-        ResponseTrt = urllib.urlopen(Url)
-        Trades = json.loads(ResponseTrt.read())
+        ResponseTrt = urllib.request.urlopen(Url)
+        strTrades = ResponseTrt.readall().decode('utf-8')
+        Trades = json.loads(strTrades)
         return Trades
 
       # getting the full orderbook
     def OrderBook(self, fund):
         self.fund=fund
         Url = "https://www.therocktrading.com/api/orderbook/"+self.fund
-        ResponseTrt = urllib.urlopen(Url)
-        Orders = json.loads(ResponseTrt.read())
+        ResponseTrt = urllib.request.urlopen(Url)
+        strOrders = ResponseTrt.readall().decode('utf-8')
+        Orders = json.loads(strOrders)
         return Orders

@@ -31,7 +31,7 @@ print ''
 sleep(1)
 
 ## asking TheRock for all market tickers
-AllData = rock.AllMarketData()
+AllData = rock.AllMarketData('btceur')
 print AllData
 print ''
 sleep(1)
@@ -52,7 +52,7 @@ sleep(1)
 
 ## asking the rock for my available balance of a specified currency
 ## in this case the currency is DOGECOIN
-MyBalance = rock.GetBalance('xrp')
+MyBalance = rock.GetBalance('doge')
 print MyBalance
 print ''
 sleep(1)
@@ -78,5 +78,11 @@ sleep(1)
 ## cancelling an order with the specified order_id
 CancelIt = rock.CancelOrder('1647754')
 print CancelIt
+print ''
+sleep(1)
+
+## getting the Discount Level for EURO
+EurDiscount = rock.DiscountLevel('eur')
+print EurDiscount
 print ''
 sleep(1)

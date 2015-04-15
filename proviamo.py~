@@ -1,0 +1,30 @@
+from PyRock import PyRock
+from time import sleep
+
+## this is just an example. if you want to run it, you need to insert
+## your username, password and API key (if you don't have one you can
+## contact therocktrading.com and ask them for your key)
+##
+## Note that MarketData, LastTrades and GetBalance functions do NOT
+## require an API KEY.
+##
+## I put a sleep(1) between each query because trt has a request limit
+## which is five API calls per second - it's a bit slower but for this
+## example it is ok.
+##
+## You should have a look on the code before putting in it your account
+## data and running it. This one creates also some orders, so you might
+## check them before they are created. Also, there might be some bug or
+## error, so use this with caution.
+##
+## Do whatever you want with this code - but keep in mind that I do NOT
+## take any responsibility for errors or losses caused by this script.
+
+
+rock = PyRock('mikexine','cr535gtsaltatempo', '1c8baef49adfa436320d7da8ebf41d03225edf6e')
+
+## getting the Discount Level for EURO
+EurDiscount = rock.DiscountLevel('xrp')
+print EurDiscount
+print ''
+sleep(1)

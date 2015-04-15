@@ -114,7 +114,8 @@ class PyRock:
         return MkData
 
       # get all market tickers
-    def AllMarketData(self):
+    def AllMarketData(self, fund):
+        self.fund=fund
         Url = "https://www.therocktrading.com/api/tickers/"
         ResponseTrt = urllib.urlopen(Url)
         AllMkData = json.loads(ResponseTrt.read())

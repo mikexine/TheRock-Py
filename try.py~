@@ -31,7 +31,7 @@ print ''
 sleep(1)
 
 ## asking TheRock for all market tickers
-AllData = rock.AllMarketData()
+AllData = rock.AllMarketData
 print AllData
 print ''
 sleep(1)

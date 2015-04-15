@@ -30,6 +30,12 @@ print(Data)
 print('')
 sleep(1)
 
+## asking TheRock for all market tickers
+AllData = rock.AllMarketData()
+print (AllData)
+print ('')
+sleep(1)
+
 ## asking the rock for the trades of the 'eurdog' fund since 1400284800
 ## (this is EUR/DOGE trades, since 1400284800; date expressed in UnixTime)
 Trades = rock.LastTrades('eurdog', '1400284800')

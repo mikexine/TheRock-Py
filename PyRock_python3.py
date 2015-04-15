@@ -119,6 +119,14 @@ class PyRock:
         MkData = json.loads(strMkData)
         return MkData
 
+      # get all market tickers
+    def AllMarketData(self):
+        Url = "https://www.therocktrading.com/api/tickers/"
+        ResponseTrt = urllib.request.urlopen(Url)
+        strAllMkData = ResponseTrt.readall().decode('utf-8')
+        AllMkData = json.loads(strAllMkData)
+        return AllMkData
+
       # getting last trades for a fund since a date
     def LastTrades(self, fund, date):
         self.date = date
