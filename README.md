@@ -11,4 +11,5 @@ If you have any suggestions or feedbacks feel free to let me know.
 If you need an API key you can generate one under your "Personal Settings" page on the exchange. 
 
 *April 2015:*
+
 Added .py files for Python 3.x. I used the built-in 2to3 converter. Hope everything works correctly!
