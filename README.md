@@ -11,7 +11,7 @@ To run TheRock-Py you need to check if you have installed the `requests`library.
 
 *April 2015:*
 
-I switched to Python 3.x. For now, TheRock-Py has exactly the same features for both Python2.x and Python3.x, but I am planning to keep updated only the version for Python3.x. 
+I switched to Python 3.x. As of today, TheRock-Py has exactly the same features for both Python2.x and Python3.x, but I am planning to keep updated only the version for Python3.x. 
  
 
 
