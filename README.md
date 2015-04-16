@@ -1,6 +1,6 @@
-#[The Rock Trading Exchange](https://www.therocktrading.com/referral/80) APIs & Python
+#TheRock-Py
 
-This script gets data from the [The Rock Trading Ltd API](https://www.therocktrading.com/en/pages/api). For some of the request you don't need to be registered on the exchange. 
+This script gets data from the [The Rock Trading Ltd Exchange](https://www.therocktrading.com/referral/80). For some of the request you don't need to be registered on the exchange. 
 Have a look at the Examples folder. *try3.py* is just an example script; more description is inside the file, you should have a look at it. 
 If you want, you can get data from all the markets on TRT, just change the try3.py file. 
 
@@ -9,7 +9,8 @@ If you need an API key you can generate one under your "Personal Settings" page 
 To run TheRock-Py you need to check if you have installed the `requests`library. If you're missing it, just run `pip install requests` or `pip3 install requests`.
 
 
-##April 2015:
+<br />
+###April 2015:
 
 I switched to Python 3.x. As of today, TheRock-Py has exactly the same features for both Python2.x and Python3.x, but I am planning to keep updated only the version for Python3.x. 
  
