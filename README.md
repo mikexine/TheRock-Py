@@ -4,13 +4,21 @@ This script gets data from the [The Rock Trading Ltd API](https://www.therocktra
 Have a look at the Examples folder. *try.py* is just an example script; more description is inside the file, you should have a look at it. 
 If you want, you can get data from all the markets on TRT, just change the try.py file. 
 
+If you need an API key you can generate one under your "Personal Settings" page on the exchange. 
+
+To run TheRock-Py you need to check if you have installed the `requests`library. If not, just run `pip install requests` or `pip3 install requests`.
+
+
+*April 2015:*
+I switched to Python 3.x. For now, TheRock-Py has exactly the same features for both Python2.x and Python3.x, but I am planning to keep updated only the version for Python3.x. 
+ 
+
+
+
+
+ <br />
 Be careful, it may have some issues. Do whatever you want with code; I am NOT responsible for how you use this.
 
 If you have any suggestions or feedbacks feel free to let me know. 
 
-If you need an API key you can generate one under your "Personal Settings" page on the exchange. 
-
-*April 2015:*
-
-- Added .py files for Python 3.x. I used the built-in 2to3 converter. Hope everything works correctly!
-- Added support to call "All Tickers" API.
+And, just in case.. [3GBtf5pFaosrTqP7Z6nDoH7utTbtknZeY1](bitcoin:3GBtf5pFaosrTqP7Z6nDoH7utTbtknZeY1) - thank you :smile:
