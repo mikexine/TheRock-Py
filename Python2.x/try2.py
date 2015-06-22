@@ -1,4 +1,4 @@
-from PyRock import PyRock
+from PyRock2 import PyRock
 from time import sleep
 
 ## this is just an example. if you want to run it, you need to insert
