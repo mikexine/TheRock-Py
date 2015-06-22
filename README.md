@@ -1,5 +1,5 @@
 <p align="center">
-<img src="/logo/TheRock_default.png">
+<img src="https://dl.dropboxusercontent.com/u/75692343/TheRock_default.png">
 </p>
 #TheRock-Py
 
