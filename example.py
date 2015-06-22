@@ -21,7 +21,7 @@ from time import sleep
 ## take any responsibility for errors or losses caused by this script.
 
 
-rock = PyRock('INSERT_USERNAME','INSERT_PASSWORD', 'INSERT_API_KEY')
+rock = PyRock('USERNAME','PASSWORD', 'API_KEY')
 
 ## asking TheRock for the data of the fund 'btceur' 
 ## (this is BTC/EUR, it may be any other listed on TRT)
@@ -51,8 +51,8 @@ print('')
 sleep(1)
 
 ## asking the rock for my available balance of a specified currency
-## in this case the currency is Ripple
-MyBalance = rock.GetBalance('xrp')
+## in this case the currency is Euro
+MyBalance = rock.GetBalance('eur')
 print(MyBalance)
 print('')
 sleep(1)
@@ -76,13 +76,13 @@ print('')
 sleep(1)
 
 ## cancelling an order with the specified order_id
-CancelIt = rock.CancelOrder('1647754')
+CancelIt = rock.CancelOrder('16657582')
 print(CancelIt)
 print('')
 sleep(1)
 
-## getting the Discount Level for Ripple
-EurDiscount = rock.GetDiscountLevel('xrp')
-print(EurDiscount)
+## getting the Discount Level for Euro
+Discount = rock.GetDiscountLevel('eur')
+print(Discount)
 print('')
 sleep(1)
