@@ -1,5 +1,5 @@
 <p align="center">
-![alt tag](/logo/TheRock_default.png)
+<img src="/logo/TheRock_default.png">
 </p>
 #TheRock-Py
 
