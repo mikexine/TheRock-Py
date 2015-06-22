@@ -1,5 +1,5 @@
 <div style="text-align:center">
-![alt tag](https://dl.dropboxusercontent.com/u/75692343/TheRock_default.png)
+![alt tag](/logo/TheRock_default.png)
 </div>
 #TheRock-Py
 
