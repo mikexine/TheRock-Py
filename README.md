@@ -8,6 +8,10 @@ If you need an API key you can generate one under your "Personal Settings" page 
 
 To run TheRock-Py you need to check if you have installed the `requests`library. If you're missing it, just run `pip install requests` or `pip3 install requests`.
 
+<br />
+###June 2015:
+
+I published a single version of PyRock that should work without bugs both with Python2.x and Python3.x. 
 
 <br />
 ###April 2015:

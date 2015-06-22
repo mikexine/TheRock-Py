@@ -1,6 +1,8 @@
 import json
 import requests
 
+StdUrl = 'https://www.therocktrading.com/api/'
+
 class PyRock:
     
       # credentials
@@ -13,7 +15,7 @@ class PyRock:
     def GetBalance(self, currency):
         try:
             currency = currency.upper()
-            url = 'https://www.therocktrading.com/api/get_balance'
+            url = StdUrl+'get_balance'
             values = {
             'username' : self.username,
             'password' : self.password,
@@ -30,7 +32,7 @@ class PyRock:
     def GetDiscountLevel(self, currency):
         try:
             currency = currency.upper()
-            url = 'https://www.therocktrading.com/api/get_discountlevel'
+            url = StdUrl+'get_discountlevel'
             values = {
             'username' : self.username,
             'password' : self.password,
@@ -47,7 +49,7 @@ class PyRock:
       # get the list of active orders for the account 
     def GetOrders(self):
         try:
-            url = 'https://www.therocktrading.com/api/get_orders'
+            url = StdUrl+'get_orders'
             values = {
             'username' : self.username,
             'password' : self.password,
@@ -63,7 +65,7 @@ class PyRock:
     def PlaceBuyOrder(self, fund, amount, price):
         try:
             fund = fund.upper()
-            url = 'https://www.therocktrading.com/api/place_order'
+            url = StdUrl+'place_order'
             values = {
             'username'   : self.username,
             'password'   : self.password,
@@ -83,7 +85,7 @@ class PyRock:
     def PlaceSellOrder(self, fund, amount, price):
         try:
             fund = fund.upper()
-            url = 'https://www.therocktrading.com/api/place_order'
+            url = StdUrl+'place_order'
             values = {
             'username'   : self.username,
             'password'   : self.password,
@@ -102,7 +104,7 @@ class PyRock:
       # cancel a specified order
     def CancelOrder(self, orderid):
         try:
-            url = 'https://www.therocktrading.com/api/cancel_order'
+            url = StdUrl+'cancel_order'
             values = {
             'username'   : self.username,
             'password'   : self.password,
@@ -118,14 +120,14 @@ class PyRock:
       # getting ticker for a certain currency / fund
     def MarketData(self, fund):
         self.fund = fund.upper()
-        url = "https://www.therocktrading.com/api/ticker/"+self.fund
+        url = StdUrl+"ticker/"+self.fund
         headers = {'content-type': 'application/json'}
         r = requests.get(url, headers = headers)
         return r.json()
 
       # get all market tickers
     def AllMarketData(self):
-        url = "https://www.therocktrading.com/api/tickers/"
+        url = StdUrl+"tickers/"
         headers = {'content-type': 'application/json'}
         r = requests.get(url, headers = headers)
         return r.json()
@@ -134,7 +136,7 @@ class PyRock:
     def LastTrades(self, fund, date):
         self.date = date
         self.fund = fund.upper()
-        url = "https://www.therocktrading.com/api/trades/"+self.fund+"/?since="+self.date
+        url = StdUrl+"trades/"+self.fund+"/?since="+self.date
         headers = {'content-type': 'application/json'}
         r = requests.get(url, headers = headers)
         return r.json()
@@ -142,7 +144,7 @@ class PyRock:
       # getting the full orderbook
     def OrderBook(self, fund):
         self.fund=fund.upper()
-        url = "https://www.therocktrading.com/api/orderbook/"+self.fund
+        url = StdUrl+"orderbook/"+self.fund
         headers = {'content-type': 'application/json'}
         r = requests.get(url, headers = headers)
         return r.json()
