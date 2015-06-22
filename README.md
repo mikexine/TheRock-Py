@@ -24,6 +24,3 @@ I switched to Python 3.x. As of today, TheRock-Py has exactly the same features 
 Be careful, it may have some issues. Do whatever you want with code; I am NOT responsible for how you use this.
 
 If you have any suggestions or feedbacks feel free to let me know. 
-
-
-And, just in case.. [3PzEUKoCGqFsAotn87kbhJKYh2mC9NkRJ3](bitcoin:3PzEUKoCGqFsAotn87kbhJKYh2mC9NkRJ3) - thank you :smile:
