@@ -1,6 +1,6 @@
-
+<p align="center">
 ![alt tag](/logo/TheRock_default.png)
-
+</p>
 #TheRock-Py
 
 This script gets some data from the [The Rock Trading Ltd Exchange](https://www.therocktrading.com/referral/80). For some of the request you don't need to be registered on the exchange. 
