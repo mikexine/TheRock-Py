@@ -1,6 +1,6 @@
 #TheRock-Py
 
-This script gets data from the [The Rock Trading Ltd Exchange](https://www.therocktrading.com/referral/80). For some of the request you don't need to be registered on the exchange. 
+This script gets some data from the [The Rock Trading Ltd Exchange](https://www.therocktrading.com/referral/80). For some of the request you don't need to be registered on the exchange. 
 Have a look at the Examples folder. *try3.py* is just an example script; more description is inside the file, you should have a look at it. 
 If you want, you can get data from all the markets on TRT, just change the try3.py file. 
 
