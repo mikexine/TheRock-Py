@@ -13,8 +13,8 @@ This script gets some data from the [The Rock Trading Ltd Exchange](https://www.
 ####July 2015:
 The Rock Trading updated completely its API. Now they are available at the following links: 
 - Old "www" API: still available, but deprecated.
-- v0 API: available, [click here](https://api.therocktrading.com/doc/v0/). You should use v1 API.
-- v1 API: available, [click here](https://api.therocktrading.com/doc/v1/). You should try to use this API, but be careful: some minor changes may occur, check [this link](https://www.therocktrading.com/en/topics/working-on-new-api) on the official forum. 
+- v0 API: available, [click here](api.therocktrading.com/doc/v0/). You should use v1 API.
+- v1 API: available, [click here](api.therocktrading.com/doc/v1/). You should try to use this API, but be careful: some minor changes may occur, check [this link](https://www.therocktrading.com/en/topics/working-on-new-api) on the official forum. 
 - In the v1 folder you can find a file called "example_pagination.py": this one shows how to get the whole history of the trades of a currency pair. Be careful: if you run it, you might be blacklisted due to the API calls limits (5 requests per second)
 
 ####June 2015:
