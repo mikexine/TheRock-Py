@@ -3,6 +3,10 @@
 from PyRock import PyRock
 import sys
 
+# redirect print output to a text file
+
+sys.stdout = open("./test.txt", "w")
+
 # Insert your APIKEY and you APISECRET here. You can also skip this and leave 'INSERT_KEY' and 'INSERT_SECRET' if 
 # you don't need authenticated requests. 
 
