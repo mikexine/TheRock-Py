@@ -211,3 +211,13 @@ class PyRock:
         }
         r = requests.post(url, data = json.dumps(values), headers = PyRock.getheaders(url, self.secret, self.key))
         return r.json()
+
+      # authenticated GET request to one url, used in example_pagination.py
+    def paginateSig(self, url):
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        return r.json()
+
+      # unauthenticated GET request to one url, used in example_pagination.py
+    def paginate(self, url):
+        r = requests.get(url, headers = {'content-type': 'application/json'})
+        return r.json()
