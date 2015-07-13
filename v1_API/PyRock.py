@@ -184,7 +184,8 @@ class PyRock:
       # get user's trades only, with pagination, after a certain date and before another one
     def UserTradesTime(self, fund, after, before):
         url = StdUrl+'funds/'+fund.upper()+'/trades?after='+after+'&before='+before
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        callurl = StdUrl+'funds/'+fund.upper()+'/trades'
+        r = requests.get(url, headers = PyRock.getheaders(callurl, self.secret, self.key))
         return r.json()
 
 
