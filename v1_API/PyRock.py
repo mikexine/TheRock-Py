@@ -18,7 +18,7 @@ class PyRock:
     def getheaders(self, url, secret, key):
         nonce = str(int(time.time() * 1e6))
         message = str(nonce)+url
-        signature = hmac.new(secret, msg=message, digestmod=hashlib.sha512).hexdigest()
+        signature = hmac.new(secret.encode(), msg=message.encode(), digestmod=hashlib.sha512).hexdigest()
         headers = {'content-type': 'application/json', 'X-TRT-KEY': key, 'X-TRT-SIGN': signature, 'X-TRT-NONCE': nonce}
         return headers
 
