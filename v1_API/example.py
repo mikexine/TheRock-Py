@@ -95,7 +95,7 @@ print(tradestime)
 print('')
 sleep(1)
 
-TRADING API https://api.therocktrading.com/doc/v1/#api-Trading_API
+# TRADING API https://api.therocktrading.com/doc/v1/#api-Trading_API
 
 # List the details of all your open orders for one fund
 orders = rock.ListAllOrders('eurdog')
