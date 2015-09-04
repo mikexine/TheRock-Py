@@ -1,0 +1,89 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rock orderbook diff example</title>
+</head>
+<body style="width:50%">
+<h1 align="center">Rock BTCEUR orderbook diff</h1>
+
+<div id="bids" style="float:left;">
+  <h2>Bids</h2>
+  <div id="bid">waiting for orders...</div>
+</div>
+
+<div id="asks" style="float:right; text-align:right;">
+  <h2>Asks</h2>
+  <div id="ask">waiting for orders...</div>
+</div>
+<script src="https://js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+<script type="text/javascript" defer>
+
+(function() {
+    var pusher = new Pusher('8458eb6fbd288f0cf3d8');
+    var bids = [];
+    var asks = [];
+    var order_book_channel = pusher.subscribe('BTCEUR');
+    
+    // http://stackoverflow.com/questions/3464815/insert-item-in-javascript-array-and-sort
+    function findInsertionPoint(sortedArr, val, comparator) {   
+      var low = 0, high = sortedArr.length;
+      var mid = -1, c = 0;
+      while(low < high) {
+        mid = parseInt((low + high)/2);
+        c = comparator(sortedArr[mid]['price'], val['price']);
+        if(c < 0) {
+           low = mid + 1;
+        }else if(c > 0) {
+           high = mid;
+        }else {
+           return mid;
+        }
+      }
+      return low;
+    }
+    function ask_comparator(val1, val2)  {
+      return val1 - val2;
+    }
+
+    function bid_comparator(val1, val2)  {
+      return val2 - val1;
+    }
+
+    order_book_channel.bind('orderbook_diff', function(data) {
+      var idx = 0;
+      
+      if (data['side'] == 'bid') {
+        arr = bids;
+        idx = findInsertionPoint(arr, data, bid_comparator);
+      } else {
+        arr = asks;
+        idx = findInsertionPoint(arr, data, ask_comparator);
+      }
+      if (arr[idx] === undefined) {
+        arr[idx] = data;
+      }
+      if (arr[idx]['price'] == data['price']) {
+        if (data['amount'] == 0) {
+          arr.splice(idx, 1);
+        } else {
+          arr[idx]['amount'] = data['amount'];
+        }
+      } else {
+        if (data['amount'] > 0) {
+          arr.splice(idx, 0, data);
+        }
+      }
+
+      elem = document.getElementById(data['side']);
+      elem.innerHTML = '';
+      for(i=0; i < arr.length; i++) {
+        child = document.createElement("div");
+        child.innerHTML = arr[i]['amount'] + '@' + arr[i]['price'];
+        elem.appendChild(child);
+      }
+    });
+})();
+</script>
+</body>
+</html>

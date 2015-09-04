@@ -1,0 +1,40 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rock orderbook example</title>
+<body style="width:50%">
+<h1 align="center">Rock BTCEUR orderbook</h1>
+
+<div style="float:left;">
+  <h2>Bids</h2>
+  <div id="bids">waiting for orders...</div>
+</div>
+<div style="float:right; text-align:right;">
+  <h2>Asks</h2>
+  <div id="asks">waiting for orders...</div>
+</div>
+
+<script src="https://js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var bids = document.getElementById("bids")
+var asks = document.getElementById("asks")
+var pusher = new Pusher('8458eb6fbd288f0cf3d8');
+var order_book_channel = pusher.subscribe('BTCEUR');
+
+order_book_channel.bind('orderbook', function(data) {
+    bids.innerHTML = '';
+    asks.innerHTML = '';
+
+    for(i=0;i<data['bids'].length;i++) {
+        bids.innerHTML = bids.innerHTML + data['bids'][i]['amount'] + '@' + data['bids'][i]['price'] + '<br/>';
+    }
+    for(i=0;i<data['asks'].length;i++) {
+        asks.innerHTML = asks.innerHTML + data['asks'][i]['amount'] + '@' + data['asks'][i]['price'] + '<br/>';
+    }
+});
+
+</script>
+</body>
+</html>
