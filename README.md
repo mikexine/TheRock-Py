@@ -10,6 +10,9 @@ This script gets some data from the [The Rock Trading Ltd Exchange](https://www.
 - When you create a new API Key, you can choose if this key can have read-only access, read and trade access or read, trade and withdraw access. 
 - To run TheRock-Py you need to check if you have installed the `requests` library. If you're missing it, just run `pip install requests` or `pip3 install requests`.
 
+####September 2015:
+I just started to work on TRT's Websocket API. I hope that soon it will work! 
+
 ####July 2015:
 The Rock Trading updated completely its API. Now they are available at the following links: 
 - Old "www" API: still available, but deprecated.
@@ -26,3 +29,5 @@ I switched to Python 3.x. As of today, TheRock-Py has exactly the same features 
 Be careful, it may have some issues. Do whatever you want with code; I am NOT responsible for how you use this.
 
 If you have suggestions, questions or if you want to send me a feedback feel free to contact me at *[mikexine@gmail.com](mailto:mikexine@gmail.com)*
+
+Just in case, here's my bitcoin address: 36ESrUbhUdw7waPNb33K5nningzNubJ2Fr - thanks!
