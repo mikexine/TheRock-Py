@@ -9,23 +9,33 @@ import time
 import json
 
 
-def orderbook_diff_callback(data): #some callbacs to do something when the event occours
-    prova = json.loads(data)
-    print "change in orderbook: "
-    print prova['side']
-    print prova['price']
-    print prova['amount']
+def new_offer_callback(d):
+    new_offers = json.loads(d)
+    print 'new offers ', new_offers
+
+def last_trade_callback(a):
+    last_trades = json.loads(a)
+    print 'last trades ', last_trades
+
+def orderbook_diff_callback(t): 
+    orderbook_diffs = json.loads(t)
+    print 'orderbook diffs ', orderbook_diffs
+
+def orderbook(s):
+    orderbooks = json.loads(s)
+    print 'orderbooks ', orderbooks
+
 
 def connect_handler(data): #this gets called when the Pusher connection is established
-    trades_channel = pusher.subscribe('BTCEUR')
-    trades_channel.bind('orderbook_diff', orderbook_diff_callback)
+    btceur_channel = pusher.subscribe('BTCEUR')
 
+    btceur_channel.bind('new_offer', new_offer_callback)
 
-    # order_book_channel.bind('orderbook_diff', order_book_callback)
+    btceur_channel.bind('last_trade', last_trade_callback)
 
-    # orders_channel.bind('new_offer', order_deleted_callback)
-    # orders_channel.bind('order_created', order_created_callback)
-    # orders_channel.bind('order_changed', order_changed_callback)
+    btceur_channel.bind('orderbook_diff', orderbook_diff_callback)
+
+    btceur_channel.bind('orderbook', orderbook_callback)
 
 
 if __name__ == '__main__': #this is the main() function
