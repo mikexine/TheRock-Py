@@ -1,4 +1,4 @@
-import pusherclient 
+import pusherclient #install from https://github.com/ekulyk/PythonPusherClient
 import time
 import json
 
@@ -23,7 +23,7 @@ def orderbook_callback(data):
     print 'orderbooks ', orderbooks
 
 
-def connect_handler(data): #this gets called when the Pusher connection is established
+def connect_handler(data):
     currency_channel = pusher.subscribe('currency')
     currency_channel.bind('new_offer', new_offer_callback)
     currency_channel.bind('last_trade', last_trade_callback)
