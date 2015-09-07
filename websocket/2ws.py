@@ -21,7 +21,7 @@ def orderbook_diff_callback(t):
     orderbook_diffs = json.loads(t)
     print 'orderbook diffs ', orderbook_diffs
 
-def orderbook(s):
+def orderbook_callback(s):
     orderbooks = json.loads(s)
     print 'orderbooks ', orderbooks
 
