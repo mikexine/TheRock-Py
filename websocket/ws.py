@@ -1,3 +1,5 @@
+# just raw data, don't use it
+
 import sys
 import pusherclient
 from time import sleep
