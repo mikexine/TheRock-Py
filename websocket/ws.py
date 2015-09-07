@@ -1,9 +1,9 @@
-
 import sys
 import pusherclient
-import time
+from time import sleep
+import json
 
-# Add a logging handler so we can see the raw communication data
+# Add a logging handler so we can see the raw communication data 
 import logging
 root = logging.getLogger()
 root.setLevel(logging.INFO)
@@ -23,5 +23,6 @@ pusher.connection.bind('pusher:connection_established', connect_handler)
 pusher.connect()
 
 
+
 while True:
-    time.sleep(1)
+	sleep(1)

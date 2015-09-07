@@ -1,45 +1,38 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import sys
 sys.path.append('..')
-
-import time
-
-import pusherclient
-
-# Add a logging handler so we can see the raw communication data
+import pusherclient #live stream client: https://github.com/ekulyk/PythonPusherClient
 import logging
-root = logging.getLogger()
-root.setLevel(logging.INFO)
-ch = logging.StreamHandler(sys.stdout)
-root.addHandler(ch)
+import time
+import json
 
-global pusher
 
-def print_usage(filename):
-    print("Usage: python %s <appkey>" % filename)
+def orderbook_diff_callback(data): #some callbacs to do something when the event occours
+    prova = json.loads(data)
+    print "change in orderbook: "
+    print prova['side']
+    print prova['price']
+    print prova['amount']
 
-def channel_callback(data):
-    print("Channel Callback: %s" % data)
+def connect_handler(data): #this gets called when the Pusher connection is established
+    trades_channel = pusher.subscribe('BTCEUR')
+    trades_channel.bind('orderbook_diff', orderbook_diff_callback)
 
-def connect_handler(data):
-    channel = pusher.subscribe('BTCEUR')
 
-    channel.bind('orderbook_diff', channel_callback)
-    
+    # order_book_channel.bind('orderbook_diff', order_book_callback)
 
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print_usage(sys.argv[0])
-        sys.exit(1)
+    # orders_channel.bind('new_offer', order_deleted_callback)
+    # orders_channel.bind('order_created', order_created_callback)
+    # orders_channel.bind('order_changed', order_changed_callback)
 
-    appkey = sys.argv[1]
 
-    pusher = pusherclient.Pusher('8458eb6fbd288f0cf3d8')
-
+if __name__ == '__main__': #this is the main() function
+    pusher = pusherclient.Pusher("8458eb6fbd288f0cf3d8")
+    # pusher.connection.logger.setLevel(logging.WARNING) #no need for this line if you want everything printed out by the logger
     pusher.connection.bind('pusher:connection_established', connect_handler)
-    a = pusher.connect()
+    pusher.connect()
 
-
-    while True:
+    while True:  #run until ctrl+c interrupts
         time.sleep(1)
