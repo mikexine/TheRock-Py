@@ -15,7 +15,7 @@ global pusher
 # We can't subscribe until we've connected, so we use a callback handler
 # to subscribe when able
 def connect_handler(data):
-    channel = pusher.subscribe('BTCEUR')
+    channel = pusher.subscribe('currency')
     channel.bind('new_offer', callback)
     channel.bind('last_trade', callback)
     channel.bind('orderbook_diff', callback)
