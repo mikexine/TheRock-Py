@@ -27,37 +27,37 @@ class PyRock:
       # Balance of a certain fund
     def Balance(self, fund):
         url = StdUrl+'balances/'+fund.upper()
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # All Balances
     def AllBalances(self):
         url = StdUrl+'balances'
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # discount levels of one fund
     def DiscountLevel(self, fund):
         url = StdUrl+'discounts/'+fund.upper()
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # discount levels of all funds
     def AllDiscountLevels(self):
         url = StdUrl+'discounts'
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       #Withdraw limits of one fund
     def WithdrawLimit(self, fund):
         url = StdUrl+'withdraw_limits/'+fund.upper()
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       #Withdraw limits of all funds
     def AllWithdrawLimits(self):
         url = StdUrl+'withdraw_limits'
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
 
@@ -66,37 +66,37 @@ class PyRock:
       # get all funds at once
     def Funds(self):
         url = StdUrl+'funds'
-        r = requests.get(url, headers = {'content-type': 'application/json'})
+        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
         return r.json()
     
       # get the orderbook for a certain fund
     def OrderBook(self, fund):
         url = StdUrl+'funds/'+fund.upper()+'/orderbook'
-        r = requests.get(url, headers = {'content-type': 'application/json'})
+        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
         return r.json()
 
       # get the ticker for a certain fund
     def Ticker(self, fund):
         url = StdUrl+'funds/'+fund.upper()+'/ticker'
-        r = requests.get(url, headers = {'content-type': 'application/json'})
+        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
         return r.json()
 
       # get all tickers
     def AllTickers(self):
         url = StdUrl+'funds/tickers'
-        r = requests.get(url, headers = {'content-type': 'application/json'})
+        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
         return r.json()
 
       # get the last trades for a certain fund, with pagination. 
     def Trades(self, fund):
         url = StdUrl+'funds/'+fund.upper()+'/trades'
-        r = requests.get(url, headers = {'content-type': 'application/json'})
+        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
         return r.json()
 
       # get the last trades for a certain fund, after x date and before x date, with pagination
     def TradesTime(self, fund, after, before):
         url = StdUrl+'funds/'+fund.upper()+'/trades?after='+after+'&before='+before
-        r = requests.get(url, headers = {'content-type': 'application/json'})
+        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
         return r.json()
 
 
@@ -105,25 +105,25 @@ class PyRock:
       # Show the list of orders for a certain fund
     def ListAllOrders(self, fund):
         url = StdUrl+'funds/'+fund.upper()+'/orders'
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # Show the details of one order
     def ListOrder(self, fund, orderId):
         url = StdUrl+'funds/'+fund.upper()+'/orders/'+str(orderId)
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # Cancell all open orders for a certain fund
     def CancelAllOrders(self, fund):
         url = StdUrl+'funds/'+fund.upper()+'/orders/remove_all'
-        r = requests.delete(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.delete(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r
 
       # Show the details of one order
     def CancelOrder(self, fund, orderId):
         url = StdUrl+'funds/'+fund.upper()+'/orders/'+str(orderId)
-        r = requests.delete(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.delete(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
     def PlaceBuyOrder(self, fund, amount, price):
@@ -134,7 +134,7 @@ class PyRock:
         'amount' : str(amount),
         'price' : str(price)
         }
-        r = requests.post(url, data = json.dumps(values), headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.post(url, data = json.dumps(values), headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
     def PlaceSellOrder(self, fund, amount, price):
@@ -145,47 +145,43 @@ class PyRock:
         'amount' : amount,
         'price' : price
         }
-        r = requests.post(url, data = json.dumps(values), headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.post(url, data = json.dumps(values), headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # Get user's transactions, with pagination
     def Transactions(self):
         url = StdUrl+'transactions'
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # Get user's transactions by FUND_ID, with pagination
     def TransactionsByFund(self, fund):
         url = StdUrl+'transactions?fund_id='+fund.upper()
-        callurl = StdUrl+'transactions'
-        r = requests.get(url, headers = PyRock.getheaders(callurl, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # Get user's transactions by CURRENCY, with pagination
     def TransactionsByCurrency(self, currency):
         url = StdUrl+'transactions?currency='+currency.upper()
-        callurl = StdUrl+'transactions'
-        r = requests.get(url, headers = PyRock.getheaders(callurl, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # Get user's transactions by TIME, with pagination
     def TransactionsByTime(self, after, before):
         url = StdUrl+'transactions?after='+after+'&before='+before
-        callurl = StdUrl+'transactions'
-        r = requests.get(url, headers = PyRock.getheaders(callurl, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # get user's trades only, with pagination 
     def UserTrades(self, fund):
         url = StdUrl+'funds/'+fund.upper()+'/trades'
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # get user's trades only, with pagination, after a certain date and before another one
     def UserTradesTime(self, fund, after, before):
         url = StdUrl+'funds/'+fund.upper()+'/trades?after='+after+'&before='+before
-        callurl = StdUrl+'funds/'+fund.upper()+'/trades'
-        r = requests.get(url, headers = PyRock.getheaders(callurl, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
 
@@ -199,7 +195,7 @@ class PyRock:
         'destination_address' : address,
         'amount' : amount,
         }
-        r = requests.post(url, data = json.dumps(values), headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.post(url, data = json.dumps(values), headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
     def WithdrawRipple(self, currency, address, amount):
@@ -210,15 +206,15 @@ class PyRock:
         'destination_address' : address,
         'amount' : amount
         }
-        r = requests.post(url, data = json.dumps(values), headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.post(url, data = json.dumps(values), headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # authenticated GET request to one url, used in example_pagination.py
     def paginateSig(self, url):
-        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key))
+        r = requests.get(url, headers = PyRock.getheaders(url, self.secret, self.key), timeout=30)
         return r.json()
 
       # unauthenticated GET request to one url, used in example_pagination.py
     def paginate(self, url):
-        r = requests.get(url, headers = {'content-type': 'application/json'})
+        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
         return r.json()

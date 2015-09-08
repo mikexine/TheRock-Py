@@ -5,8 +5,8 @@ import sys
 # Insert your APIKEY and you APISECRET here. You can also skip this and leave 'INSERT_KEY' and 'INSERT_SECRET' if 
 # you don't need authenticated requests. 
 
-apikey = 'INSERT_KEY'
-apisecret = 'INSERT_SECRET'
+apikey = 'API_KEY'
+apisecret = 'API_SECRET'
 
 rock = PyRock(apikey, apisecret)
 
@@ -104,7 +104,7 @@ print('')
 sleep(1)
 
 # List the details of one order
-orderid = 17370208
+orderid = 20651258
 orders = rock.ListOrder('eurdog', orderid)
 print(orders)
 print('')
@@ -117,7 +117,7 @@ print('')
 sleep(1)
 
 # Cancel one order
-orderid = 17370208
+orderid = 20474758
 orders = rock.CancelOrder('eurdog', orderid)
 print(orders)
 print('')
@@ -186,14 +186,14 @@ sleep(1)
 
 # Withdraw one doge to DANU5x3vECGwUVnwBSjm9gAu1qTJBPHiJk
 curr = 'DOGE'
-add = 'DMicns5VPLk44bftwMAA6reZU5jBh2zudM'
+add = 'doge'
 am = 1000
 withd = rock.Withdraw(curr, add, am)
 print(withd)
 
 # # Withdraw 5 euro to a ripple address
 currency = 'XRP'
-rippleaddress = 'rJ2VYbHz9qYNvro8yZc3iqfvqTTgmx7gJp'
+rippleaddress = 'ripple'
 amount = 3
 withdrawR = rock.WithdrawRipple(currency, rippleaddress, amount)
 print(withdrawR)
