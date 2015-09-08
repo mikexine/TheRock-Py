@@ -19,7 +19,7 @@ class PyRock:
         nonce = str(int(time.time() * 1e6))
         message = str(nonce)+url
         signature = hmac.new(secret.encode(), msg=message.encode(), digestmod=hashlib.sha512).hexdigest()
-        headers = {'content-type': 'application/json', 'X-TRT-KEY': key, 'X-TRT-SIGN': signature, 'X-TRT-NONCE': nonce}
+        headers = {'User-Agent': 'PyRock v1', 'content-type': 'application/json', 'X-TRT-KEY': key, 'X-TRT-SIGN': signature, 'X-TRT-NONCE': nonce}
         return headers
 
 # BASIC API https://api.therocktrading.com/doc/v1/#api-Basic_API
@@ -66,37 +66,37 @@ class PyRock:
       # get all funds at once
     def Funds(self):
         url = StdUrl+'funds'
-        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
+        r = requests.get(url, headers = {'User-Agent': 'PyRock v1', 'content-type': 'application/json'}, timeout=30)
         return r.json()
     
       # get the orderbook for a certain fund
     def OrderBook(self, fund):
         url = StdUrl+'funds/'+fund.upper()+'/orderbook'
-        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
+        r = requests.get(url, headers = {'User-Agent': 'PyRock v1', 'content-type': 'application/json'}, timeout=30)
         return r.json()
 
       # get the ticker for a certain fund
     def Ticker(self, fund):
         url = StdUrl+'funds/'+fund.upper()+'/ticker'
-        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
+        r = requests.get(url, headers = {'User-Agent': 'PyRock v1', 'content-type': 'application/json'}, timeout=30)
         return r.json()
 
       # get all tickers
     def AllTickers(self):
         url = StdUrl+'funds/tickers'
-        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
+        r = requests.get(url, headers = {'User-Agent': 'PyRock v1', 'content-type': 'application/json'}, timeout=30)
         return r.json()
 
       # get the last trades for a certain fund, with pagination. 
     def Trades(self, fund):
         url = StdUrl+'funds/'+fund.upper()+'/trades'
-        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
+        r = requests.get(url, headers = {'User-Agent': 'PyRock v1', 'content-type': 'application/json'}, timeout=30)
         return r.json()
 
       # get the last trades for a certain fund, after x date and before x date, with pagination
     def TradesTime(self, fund, after, before):
         url = StdUrl+'funds/'+fund.upper()+'/trades?after='+after+'&before='+before
-        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
+        r = requests.get(url, headers = {'User-Agent': 'PyRock v1', 'content-type': 'application/json'}, timeout=30)
         return r.json()
 
 
@@ -216,5 +216,5 @@ class PyRock:
 
       # unauthenticated GET request to one url, used in example_pagination.py
     def paginate(self, url):
-        r = requests.get(url, headers = {'content-type': 'application/json'}, timeout=30)
+        r = requests.get(url, headers = {'User-Agent': 'PyRock v1', 'content-type': 'application/json'}, timeout=30)
         return r.json()
